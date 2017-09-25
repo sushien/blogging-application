@@ -1,4 +1,4 @@
-package com.BloggingApplication.DAO;
+package com.dao.daoImpl;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -59,7 +59,75 @@ public class BlogImple implements BlogDAO {
         }
 	}
 
+	@Override
+	public void updateBlog(int bId,Blog blog) {
+			// TODO Auto-generated method stub
+	try{
+		
+				/*blog.setBlogId(bId);*/
+				this.session=MyUtil.getSess();
+				session.beginTransaction();
+				
+				
+				Query query=session.createQuery("update Blog set blogTitle=\'"+blog.getBlogTitle()+"\',category='"+blog.getCategory()+"',description='"+blog.getDescription()+"',summary='"+blog.getSummary()+"' where blogId="+bId);
+				
+				query.executeUpdate();
+				session.getTransaction().commit();
+	           
+	  
+				
+				
+				
+				
+	            
+	        }catch(HibernateException e){
+	           
+	            e.printStackTrace();
+	        }
+		
+	}
+
 	
+
+	
+
+	@Override
+	public Blog searchBlogByAuthor(String author) {
+		this.session=MyUtil.getSess();
+		session.beginTransaction();
+		
+		Query query=session.createQuery("from Blog b where b.author ='"+author+"'");
+		List list = query.list();
+		
+		 
+			Vector tableData2 = new Vector();
+			
+			for(Object obj : list){
+	            
+	            Blog blog = (Blog) obj;
+	            Vector<Object> row = new Vector<Object>();
+	            
+	            row.add(blog.getBlogId());
+	            row.add(blog.getBlogTitle());
+	            row.add(blog.getCategory());
+	            row.add(blog.getDescription());
+	            
+	            
+	            tableData2.add(row);
+	        }
+	        for (Object o : tableData2) {
+	            System.out.print(o + " ");
+	        }
+		
+		
+		session.getTransaction().commit();
+        session.close();
+		
+		
+
+		return null;
+	}
+
 	
 
 
