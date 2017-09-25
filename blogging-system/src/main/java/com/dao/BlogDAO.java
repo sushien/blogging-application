@@ -1,4 +1,4 @@
-package com.BloggingApplication.DAO;
+package com.dao;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ public interface BlogDAO {
 public void updateBlog(int blogId,Blog blog);
 	
 	public Blog searchBlogByAuthor(String author);
+	public Blog searchBlogByCategory(String category) ;
+	public Blog searchBlogByTitle(String bgTitle);
 	
 	
 	
