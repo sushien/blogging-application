@@ -15,6 +15,6 @@ public void updateBlog(int blogId,Blog blog);
 	public Blog searchBlogByCategory(String category) ;
 	public Blog searchBlogByTitle(String bgTitle);
 	
-	
+	public void viewBlog();
 	
 }
