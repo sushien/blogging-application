@@ -33,6 +33,12 @@ public class Test {
 		
 		
 		
+		bi.updateBlog(3, blog1);
+		System.out.println("Updated and done with.....");
+		
+		bi.searchBlogByAuthor("Ketaki Gujar");
+		
+		
 		
 	}
 	
