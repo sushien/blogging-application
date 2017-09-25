@@ -127,6 +127,78 @@ public class BlogImple implements BlogDAO {
 
 		return null;
 	}
+@Override
+	public Blog searchBlogByTitle(String bgTitle) {
+		this.session=MyUtil.getSess();
+		session.beginTransaction();
+		
+		Query query=session.createQuery("from Blog b where b.blogTitle ='"+bgTitle+"'");
+		List list = query.list();
+		//Iterator<Blog> itr=query.iterate();
+		 
+			ArrayList tableData = new ArrayList();
+			
+			for(Object obj : list){
+	            
+	            Blog blog = (Blog) obj;
+	            ArrayList<Object> row = new ArrayList<Object>();
+	            
+	            row.add(blog.getBlogId());
+	            row.add(blog.getBlogTitle());
+	            row.add(blog.getCategory());
+	            row.add(blog.getDescription());
+	            
+	            
+	            tableData.add(row);
+	        }
+	        for (Object o : tableData) {
+	            System.out.print(o + " ");
+	        }
+		
+		
+		session.getTransaction().commit();
+        session.close();
+		
+		
+
+		return null;
+	}
+	@Override
+	public Blog searchBlogByCategory(String category) {
+		this.session=MyUtil.getSess();
+		session.beginTransaction();
+		
+		Query query=session.createQuery("from Blog b where b.category ='"+category+"'");
+		List list = query.list();
+		//Iterator<Blog> itr=query.iterate();
+		 
+			Vector tableData1 = new Vector();
+			
+			for(Object obj : list){
+	            
+	            Blog blog = (Blog) obj;
+	            Vector<Object> row = new Vector<Object>();
+	            
+	            row.add(blog.getBlogId());
+	            row.add(blog.getBlogTitle());
+	            row.add(blog.getCategory());
+	            row.add(blog.getDescription());
+	            
+	            
+	            tableData1.add(row);
+	        }
+	        for (Object o : tableData1) {
+	            System.out.print(o + " ");
+	        }
+		
+		
+		session.getTransaction().commit();
+        session.close();
+		
+		
+
+		return null;
+	}
 
 	
 
