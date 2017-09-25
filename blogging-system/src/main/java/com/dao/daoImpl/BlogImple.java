@@ -200,7 +200,43 @@ public class BlogImple implements BlogDAO {
 		return null;
 	}
 
-	
+	@Override
+	public void viewBlog() {
+		// TODO Auto-generated method stub
+		ArrayList<String> tableHeaders = new ArrayList<String>();
+		this.session=MyUtil.getSess();
+		ArrayList tableData = new ArrayList();
+        Query query = session.createQuery("from Blog");
+        List list = query.list();
+        //List<Blog> list=new List<Blog>();
+        tableHeaders.add("id");
+        tableHeaders.add("Title");
+        tableHeaders.add("Category");
+        tableHeaders.add("Description");
+        //tableHeaders.add("Comments");
+        
+        for(Object obj : list){
+            
+            Blog blog = (Blog) obj;
+            ArrayList<Object> row = new ArrayList<Object>();
+            
+            row.add(blog.getBlogId());
+            row.add(blog.getBlogTitle());
+            row.add(blog.getCategory());
+            row.add(blog.getDescription());
+            
+            
+            tableData.add(row);
+        }
+        for (Object o : tableData) {
+            System.out.print(o + " ");
+        }
+        System.out.println();
+
+       // table.setModel(new DefaultTableModel(tableData, tableHeaders));
+		
+	}
+
 
 
 }
