@@ -1,4 +1,4 @@
-package model;
+package com.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -10,17 +10,17 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="comments")
-@NamedQuery(name="Comment.findAll", query="SELECT c FROM Comment c")
-public class Comment implements Serializable {
+@NamedQuery(name="Comments.findAll", query="SELECT c FROM Comments c")
+public class Comments implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private int commentId;
 
-	@Lob
+	@Column(name="comments" ,columnDefinition="TINYTEXT")
 	private String comments;
 
-	/*//bi-directional many-to-one association to User
+	//bi-directional many-to-one association to User
 	@ManyToOne
 	@JoinColumn(name="username")
 	private User user;
@@ -28,8 +28,9 @@ public class Comment implements Serializable {
 	//bi-directional many-to-one association to Blog
 	@ManyToOne
 	@JoinColumn(name="blogId")
-	private Blog blog;*/
-	public Comment() {
+	private Blog blog;
+
+	public Comments() {
 	}
 
 	public int getCommentId() {
@@ -48,7 +49,7 @@ public class Comment implements Serializable {
 		this.comments = comments;
 	}
 
-	/*public User getUser() {
+	public User getUser() {
 		return this.user;
 	}
 
@@ -63,5 +64,5 @@ public class Comment implements Serializable {
 	public void setBlog(Blog blog) {
 		this.blog = blog;
 	}
-*/
+
 }
