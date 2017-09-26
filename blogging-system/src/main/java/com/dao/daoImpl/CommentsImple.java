@@ -8,7 +8,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import com.utility.MyUtil;
-import com.model.Blog;
 import com.model.Comments;
 
 public class CommentsImple 
