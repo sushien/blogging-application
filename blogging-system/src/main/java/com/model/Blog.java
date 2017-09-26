@@ -1,10 +1,7 @@
-package com.BloggingApplication.model;
+package com.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import org.hibernate.annotations.TypeDef;
-
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -14,25 +11,19 @@ import java.util.List;
  * 
  */
 @Entity
-@Table(name="blog")
-
 @NamedQuery(name="Blog.findAll", query="SELECT b FROM Blog b")
 public class Blog implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	private int blogId;
+
 	private String author;
 
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
 	private int averageRating;
+
+	@Lob
+	private byte[] blogMedia;
 
 	private String blogTitle;
 
@@ -40,26 +31,21 @@ public class Blog implements Serializable {
 
 	private Timestamp createdDate;
 
-	@Column(name="description", columnDefinition="TEXT")
+	@Column(name="description" ,columnDefinition="TEXT")
 	private String description;
-
-	public Blog(int blogId) {
-		super();
-		this.blogId = blogId;
-	}
 
 	private Timestamp modifiedDate;
 
-	@Column(name="summary", columnDefinition="TINYTEXT")
+	@Column(name="summary" ,columnDefinition="TINYTEXT")
 	private String summary;
 
 	//bi-directional many-to-one association to Comment
-	//@OneToMany(mappedBy="blog")
-	//private List<Comment> comments;
+	@OneToMany(mappedBy="blog")
+	private List<Comments> comments;
 
 	//bi-directional many-to-one association to Rating
-	//@OneToMany(mappedBy="blog")
-	//private List<Rating> ratings;
+	@OneToMany(mappedBy="blog")
+	private List<Rating> ratings;
 
 	public Blog() {
 	}
@@ -72,12 +58,28 @@ public class Blog implements Serializable {
 		this.blogId = blogId;
 	}
 
+	public String getAuthor() {
+		return this.author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
 	public int getAverageRating() {
 		return this.averageRating;
 	}
 
 	public void setAverageRating(int averageRating) {
 		this.averageRating = averageRating;
+	}
+
+	public byte[] getBlogMedia() {
+		return this.blogMedia;
+	}
+
+	public void setBlogMedia(byte[] blogMedia) {
+		this.blogMedia = blogMedia;
 	}
 
 	public String getBlogTitle() {
@@ -128,22 +130,22 @@ public class Blog implements Serializable {
 		this.summary = summary;
 	}
 
-	/*public List<Comment> getComments() {
+	public List<Comments> getComments() {
 		return this.comments;
 	}
 
-	public void setComments(List<Comment> comments) {
+	public void setComments(List<Comments> comments) {
 		this.comments = comments;
 	}
 
-	public Comment addComment(Comment comment) {
+	public Comments addComment(Comments comment) {
 		getComments().add(comment);
 		comment.setBlog(this);
 
 		return comment;
 	}
 
-	public Comment removeComment(Comment comment) {
+	public Comments removeComment(Comments comment) {
 		getComments().remove(comment);
 		comment.setBlog(null);
 
@@ -170,6 +172,6 @@ public class Blog implements Serializable {
 		rating.setBlog(null);
 
 		return rating;
-	}*/
+	}
 
 }
