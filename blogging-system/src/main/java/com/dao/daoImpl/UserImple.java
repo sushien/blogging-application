@@ -4,7 +4,7 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import com.dao.UserDAO;
-import com.model.User;
+import com.model.*;
 import com.utility.MyUtil;
 
 public class UserImple implements UserDAO 
