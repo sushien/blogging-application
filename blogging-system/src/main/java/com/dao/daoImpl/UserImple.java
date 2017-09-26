@@ -1,21 +1,18 @@
-package com.BloggingApplication.DAO;
+package com.dao.Impl;
 
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
+import com.dao.UserDAO;
+import com.model.User;
+import com.utility.MyUtil;
 
-
-import com.BloggingApplication.Util.MyUtil;
-import com.BloggingApplication.model.User;
-
-
-
-public class UserImple implements UserDAO {
-
+public class UserImple implements UserDAO 
+{
 	private Session session;
 	@Override
-	public void createUser(User user) {
+	public void createUser(User user) 
+	{
 		// TODO Auto-generated method stub
 		this.session=MyUtil.getSess();
 		session.beginTransaction();
@@ -25,10 +22,8 @@ public class UserImple implements UserDAO {
 	}
 
 	@Override
-	public boolean findUser(String username,String password) {
-		// TODO Auto-generated method stub
-		
-		 
+	public boolean findUser(String username,String password) 
+	{	 
 		  System.out.println("In Check login");
 		    this.session=MyUtil.getSess();
 			boolean userFound = false;
@@ -44,6 +39,7 @@ public class UserImple implements UserDAO {
 			}
 
 			session.close();
-			return userFound;    	}
+			return userFound;    	
+	}
 
 }
