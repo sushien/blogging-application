@@ -1,12 +1,9 @@
-package com.uu;
+package com.dao;
 
-import model.Rating;
+import com.model.Rating;
 
-public interface RatingDAO {
+public interface RatingDAO 
+{
 	public void addRating(Rating rate);
-	//public Rating findRating(String username);
-	//public void removeUser(User user);
-	//public List<Rating>getRating();
-	//public void update(User user);
-	//public void removeUser(String username);
 }
+
