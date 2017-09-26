@@ -1,7 +1,7 @@
 package com.dao;
 
 import java.util.List;
-import com.BloggingApplication.model.Blog;
+import com.model.Blog;
 
 public interface BlogDAO 
 {
