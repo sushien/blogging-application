@@ -1,15 +1,7 @@
 package com.tests;
 
 import java.util.Date;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import com.dao.UserDAO;
-import com.dao.Impl.UserImple;
 import com.model.User;
-import com.mysql.jdbc.Blob;
 
 public class UserTest 
 {
