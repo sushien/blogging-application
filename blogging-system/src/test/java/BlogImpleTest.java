@@ -17,7 +17,7 @@ public class BlogImpleTest {
 	
 	
 
-/*@Test
+@Test
 	public void testCreateBlog() {
 	BlogDAO  b1 = new BlogImple();
 		Blog se= new Blog();
@@ -31,9 +31,9 @@ public class BlogImpleTest {
 		
 		assertEquals("Nikhil Bodke",b1.searchBlogByCategory("Arrtto").get(0).getAuthor());	
 		
-	}*/
+	}
 
-/*	@Test
+	@Test
 	public void testDeleteBlog() {
 		BlogDAO  b1 = new BlogImple();
 		
@@ -41,9 +41,9 @@ public class BlogImpleTest {
 		//MyUtil.getSess().getTransaction().commit();
 		assertNotEquals("Purnnendu",b1.searchBlogByCategory("Technology").get(0).getAuthor());
 		
-	}*/
+	}
 
-	/*@Test
+	@Test
 	public void testUpdateBlog() {
 		BlogDAO  b1 = new BlogImple();
 		Blog b= new Blog();
@@ -54,12 +54,12 @@ public class BlogImpleTest {
 		b1.updateBlog(9, b);
 		assertEquals("Chetan", b1.searchBlogByKeywordFromTitle("Arrto").get(0).getCategory());
 
-	}*/
+	}
 
-	/*@Test
+	@Test
 	public void testViewBlog() {
 		fail("Not yet implemented");
-	}*/
+	}
 	
 
 	@Test
@@ -68,11 +68,11 @@ public class BlogImpleTest {
 		assertEquals("Nokia 6 and Nokia N6",s.searchBlogByKeywordFromTitle("Nokia").get(0).getBlogTitle());
 	}
 
-	/*@Test
+	@Test
 	public void testSearchBlogByCategory() {
 		BlogDAO s = new BlogImple();
 		assertEquals("Technology",s.searchBlogByKeywordFromTitle("Nokia 6 and Nokia N6").get(0).getCategory());
-	}*/
+	}
 
 	@Test
 	public void testSearchBlogByAuthor() {
@@ -80,13 +80,13 @@ public class BlogImpleTest {
 		assertEquals("Amit ",s.searchBlogByKeywordFromTitle("Nokia 6 and Nokia N6").get(0).getAuthor());
 	}
 
-	/*@Test
+	@Test
 	public void testAverageRating() {
 		BlogDAO x = new BlogImple();
 		
 		assertEquals(2,x.searchBlogByCategory("chetan").get(0).getAverageRating());
 			
 		
-	}*/
+	}
 
 }
