@@ -1,0 +1,39 @@
+#submitform{
+  background-color:black;border:2px solid #ffffff;color:#ffffff;
+ }
+ #submitform:hover{
+  background-color:green ;border:2px solid #66ff66;color:#ffffff;
+ /* box-shadow: 0 0 3px #FF0000, 0 0 5px #66ff66;*/
+ } 
+ #resetform{
+ background-color:black;border:2px solid #ffffff;color:#ffffff;
+ }
+ #resetform:hover{
+  background-color:red;border:2px solid #ff4d4d;color:#ffffff;
+  /*box-shadow: 0 0 3px #FF0000, 0 0 5px #ff4d4d;*/
+ }
+ #username{
+  border:2px solid #000000;
+  
+ }
+#password{
+  border:2px solid #000000;
+  
+ }
+ #email{
+  border:2px solid #000000;
+  }
+  div.container{
+  width:50%;
+  padding-top:10px;
+  color:#000000;
+  color:#000000; padding-bottom:0px;
+  }
+  div.jumbotron{
+  border:3px solid #000000;background-color:white;opacity:0.8;color:black;
+  }
+  div.container5{
+  text-align:center;
+  }
+ 
+ 

@@ -1,0 +1,21 @@
+ #submitform{
+ ;border:2px solid #000000;
+ }
+ #submitform:hover{
+ background-color:green;border:px solid #66ff66;color:#ffffff;
+ /* box-shadow: 0 0 3px #FF0000, 0 0 5px #66ff66;*/
+ } 
+
+ 
+ #name{
+  border:2px solid #000000;
+  
+ }
+#pwd1{
+  border:2px solid #000000;
+  
+ }
+ #pwd2{
+  border:2px solid #000000;
+  
+ }
